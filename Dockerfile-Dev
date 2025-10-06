@@ -1,0 +1,13 @@
+FROM 26-ea-17-jdk
+
+WORKDIR /usr/app
+
+COPY target/*.jar /usr/app/app.jar
+
+RUN sudo apt update -y
+
+RUN sudo chown -R idemia:idemia /app
+
+EXPOSE 7777:7777
+
+CMD ["java":"-jar":"app.jar"]
